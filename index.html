@@ -39,8 +39,48 @@
       h3 { margin: 0 0 10px 0; font-size: 16px; color: #2ecc71; }
       .panel-section { margin-bottom: 12px; }
       label { display: block; margin-bottom: 5px; font-size: 13px; }
+
+      /* Neues Design für den Zeit-Slider */
+      .slider-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .time-label {
+        font-size: 11px;
+        font-family: monospace;
+        color: #bdc3c7;
+      }
+      
+      #timeSlider {
+        flex-grow: 1;
+        cursor: pointer;
+      }
+      
+      #timeInput {
+        background: transparent;
+        border: 1px dashed rgba(255, 255, 255, 0.4);
+        color: #2ecc71; /* Ich habe das an euer grünes Design angepasst! */
+        font-family: monospace;
+        font-size: 14px;
+        padding: 2px 4px;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: 0.2s;
+      }
+      
+      #timeInput:focus {
+        outline: none;
+        border-color: #2ecc71;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      
+      #timeInput::-webkit-calendar-picker-indicator {
+        display: none;
+      }
     </style>
-    <script type="module" crossorigin src="./assets/index-Coai6Pbd.js"></script>
+    <script type="module" crossorigin src="./assets/index-C6ECTOsQ.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-G9chY7h3.css">
   </head>
   <body>
@@ -55,8 +95,17 @@
       </div>
 
       <div class="panel-section" style="margin-bottom: 0;">
-        <label for="timeSlider">Uhrzeit (Schattenwurf):</label>
-        <input type="range" id="timeSlider" min="6" max="18" step="0.5" value="12" style="width: 100%; box-sizing: border-box;">
+        <label>Uhrzeit (Schattenwurf):</label>
+        
+        <div style="margin-bottom: 8px; margin-top: 4px;">
+          <input type="time" id="timeInput" value="12:00" min="06:00" max="18:00" step="60">
+        </div>
+
+        <div class="slider-row">
+          <span class="time-label">06:00</span>
+          <input type="range" id="timeSlider" min="6" max="18" step="any" value="12">
+          <span class="time-label">18:00</span>
+        </div>
       </div>
     </div>
 
